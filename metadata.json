@@ -1,0 +1,5 @@
+{
+  "name": "Elite AI Portfolio Architect",
+  "description": "A production-grade full-stack portfolio with Django, Svelte, MySQL, and Gemini AI integration, optimized for PythonAnywhere.",
+  "requestFramePermissions": []
+}
