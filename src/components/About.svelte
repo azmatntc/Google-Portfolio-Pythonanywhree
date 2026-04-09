@@ -1,6 +1,7 @@
 <script lang="ts">
   import { Briefcase, GraduationCap, Award, Code2, Cpu, Zap } from 'lucide-svelte';
   import { analytics } from '../services/analyticsService';
+  import VisibleSection from './VisibleSection.svelte';
 
   const achievements = [
     {
@@ -42,7 +43,7 @@
 </script>
 
 <section id="about" class="py-32 bg-neutral-50 dark:bg-neutral-900/30 border-y border-neutral-200 dark:border-neutral-800/50 transition-colors duration-300">
-  <div class="px-6 max-w-7xl mx-auto">
+  <VisibleSection className="px-6 max-w-7xl mx-auto">
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
       
       <!-- Left Column: Bio & Philosophy -->
@@ -133,5 +134,5 @@
       </div>
 
     </div>
-  </div>
+  </VisibleSection>
 </section>

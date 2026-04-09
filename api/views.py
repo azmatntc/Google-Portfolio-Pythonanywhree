@@ -7,26 +7,31 @@ import requests
 
 def get_projects(request):
     featured_param = request.GET.get('featured')
-    projects = Project.objects.all().order_by('order')
-    
-    if featured_param == 'true':
-        projects = projects.filter(is_featured=True)
-    elif featured_param == 'false':
-        projects = projects.filter(is_featured=False)
-        
     data = []
-    for p in projects:
-        data.append({
-            "id": p.id,
-            "title": p.title,
-            "description": p.description,
-            "tech_stack": p.tech_stack,
-            "tags": p.tags,
-            "features": p.features,
-            "github_link": p.github_link,
-            "live_demo": p.live_demo,
-            "is_featured": p.is_featured
-        })
+    
+    try:
+        projects = Project.objects.all().order_by('order')
+        
+        if featured_param == 'true':
+            projects = projects.filter(is_featured=True)
+        elif featured_param == 'false':
+            projects = projects.filter(is_featured=False)
+            
+        for p in projects:
+            data.append({
+                "id": p.id,
+                "title": p.title,
+                "description": p.description,
+                "tech_stack": p.tech_stack,
+                "tags": p.tags,
+                "features": p.features,
+                "github_link": p.github_link,
+                "live_demo": p.live_demo,
+                "is_featured": p.is_featured
+            })
+    except Exception as e:
+        print(f"Database error in get_projects: {e}")
+        # Fallback data will be used below if data is empty
     
     # Fallback to hardcoded if DB is empty for initial setup
     if not data:

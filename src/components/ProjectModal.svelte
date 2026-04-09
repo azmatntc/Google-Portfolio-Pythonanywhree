@@ -150,10 +150,11 @@
     transition:fade={{ duration: 300 }}
   >
     <!-- Backdrop -->
-    <div 
-      class="absolute inset-0 bg-neutral-950/90 backdrop-blur-md"
+    <button 
+      class="absolute inset-0 bg-neutral-950/90 backdrop-blur-md w-full h-full border-none cursor-default"
       on:click={onClose}
-    ></div>
+      aria-label="Close modal"
+    ></button>
 
     <!-- Modal Content -->
     <div 
